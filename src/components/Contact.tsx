@@ -3,15 +3,23 @@ import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
 import { Kicker, RiseWords, Sticker } from './ui';
+import { buildMailtoUrl, validateContactInput } from './contactUtils';
 
 export const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = `mailto:${personalInfo.email}?subject=${encodeURIComponent(`Portfolio contact from ${name}`)}&body=${encodeURIComponent(`${message}\n\nReply to: ${email}`)}`;
+    const validation = validateContactInput({ name, email, message });
+    if (!validation.valid) {
+      setErrorMsg(Object.values(validation.errors)[0] || 'Please fill in all fields');
+      return;
+    }
+    setErrorMsg('');
+    window.location.href = buildMailtoUrl({ name, email, message });
   };
 
   const rows = [
@@ -55,6 +63,7 @@ export const Contact = () => {
           <input className="field" required value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" aria-label="Your name" />
           <input className="field" required type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Your email" aria-label="Your email" />
           <textarea className="field" required rows={5} value={message} onChange={(e) => setMessage(e.target.value)} placeholder="What are we building?" aria-label="Your message" />
+          {errorMsg && <p className="text-sm font-bold text-red-600">{errorMsg}</p>}
           <button type="submit" className="btn self-start bg-orange text-paper">
             Send it <Send size={18} />
           </button>
