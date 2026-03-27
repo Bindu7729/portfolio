@@ -1,80 +1,64 @@
-# Penumala Bindu — Full-Stack Developer Portfolio 🚀💻
+# 🌟 Penumala Bindu — Full-Stack Developer Portfolio
 
-A modern, high-performance, and visually stunning personal developer portfolio website designed to showcase professional engineering capabilities, technical skills, and featured software applications.
+[![CI](https://github.com/Bindu7729/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Bindu7729/portfolio/actions/workflows/ci.yml)
+[![Tests](https://img.shields.io/badge/Vitest-Passing-brightgreen?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![React 19](https://img.shields.io/badge/React-19.2.8-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-🔗 **Live Website**: https://portfolio-lemon-omega-34.vercel.app/
+A modern, high-performance personal developer portfolio website designed to showcase professional engineering capabilities, technical skills, and featured software applications.
+
+🌐 **Live Website**: [https://portfolio-lemon-omega-34.vercel.app/](https://portfolio-lemon-omega-34.vercel.app/)
 
 ---
 
 ## ✨ Key Highlights & Features
 
-- 🎭 **Premium Interactive UI**: Dark-themed, glassmorphic design system tailored with custom bezier animations, hover glow states, and micro-interactions powered by **Framer Motion**.
-- 🛠️ **Modern Styling (Tailwind v4)**: Developed natively using the next-generation **Tailwind CSS v4** engine, with custom configurations and clean typography.
-- 🔤 **Curated Typography**: Integrated Google Fonts—**Space Grotesk** for modern display headings and **Outfit** for clean body readability.
-- 💻 **Dynamic Skills Showcase**: Interactive category grid showcasing technical domains, complete with custom-rendered SVG branding badges.
-- 📁 **Featured Projects Section**: High-fidelity product cards illustrating technical highlights, tech stacks, and direct Git checkout actions.
-- ⏳ **Experience Timeline**: Clear educational and internship log detailing smart-contract workflows, ServiceNow ATF testing, and MERN stack development.
-- 📄 **Integrated Resume System**: Direct download triggers connecting recruiters to a professionally compiled PDF resume.
-- 📱 **Fully Responsive Layout**: Optimally adapted across mobile, tablet, and widescreen layouts.
+- **Premium Interactive UI**: Dark-themed, cut-paper and glassmorphic design system tailored with custom bezier animations, hover glow states, and micro-interactions powered by **Framer Motion**.
+- **Modern Styling (Tailwind v4)**: Developed natively using the next-generation **Tailwind CSS v4** engine, with custom configurations and clean typography.
+- **Dynamic Skills Showcase**: Interactive category grid showcasing technical domains (Languages, Frontend, Backend, Tools & DB) complete with custom SVG branding badges.
+- **Featured Projects Section**: High-fidelity product cards illustrating technical highlights, tech stacks, and direct GitHub checkout actions.
+- **Experience Timeline**: Detailed educational and internship log detailing enterprise workflows, automated testing frameworks, and full-stack software development.
+- **Integrated Resume System**: Direct download triggers connecting recruiters to a professionally compiled PDF resume.
+- **Fully Responsive Layout**: Optimally adapted across mobile, tablet, and widescreen layouts.
 
 ---
 
-## 📁 Featured Projects Showcased
+## 🚀 Featured Projects Showcased
 
-1. **CodeVista — Program Visualizer** 🚀
-   - Interactive Programming Visualization Platform supporting step-by-step trace animations of loops, variable scopes, and reference heaps.
-   - *Tech*: React, TypeScript, Tailwind CSS, Node.js
-
-2. **PrepSuite AI — Placement Prep Platform** 🧠
-   - Full-stack candidate evaluation platform replicating enterprise recruitment pipelines with coding sandboxes and recruitment tracking.
-   - *Tech*: React, Tailwind CSS, Node.js, Express.js, MongoDB
-
-3. **PlanMyJourney — Travel Planner** 🗺️
-   - Premium travel planning and logistics management platform for user itinerary tracking.
-   - *Tech*: React, Tailwind CSS, Node.js, MongoDB
-
-4. **Ghostline — Secure Communication Platform** 🔒
+1. **Ghostline — Private E2EE Communication Platform**
    - Secure peer-to-peer communication platform with real-time encrypted messaging and WebRTC audio/video calls.
-   - *Tech*: Next.js, WebRTC, Socket.io, Tailwind CSS
+   - *Tech*: React, TypeScript, TanStack Start, PostgreSQL, Supabase, WebRTC, Signal Protocol
 
-5. **EduRisk AI — Student Dropout Risk Dashboard** 📊
-   - Predictive dashboard identifying at-risk students using performance analytics and attendance modeling.
-   - *Tech*: React, Node.js, Express.js, MongoDB, Recharts
+2. **CodeVista — Interactive Code Visualizer**
+   - Interactive Programming Visualization Platform supporting step-by-step trace animations of loops, variable scopes, and reference heaps.
+   - *Tech*: React, TypeScript, Tailwind CSS, Node.js, Express, Vitest
 
----
+3. **PrepSuite AI — Placement Preparation Platform**
+   - Full-stack candidate evaluation platform replicating enterprise recruitment pipelines with coding sandboxes and recruitment tracking.
+   - *Tech*: React, Tailwind CSS, Node.js, Express.js, MongoDB, JWT
 
-## 🛠️ Technology Stack
-
-- **Frontend Core**: React 19, TypeScript
-- **Styling**: Tailwind CSS v4, Vanilla CSS
-- **Icons**: Lucide React, Custom SVGs
-- **Animations**: Framer Motion
-- **Build Tool**: Vite
+4. **Student Dropout Risk Dashboard**
+   - Predictive dashboard identifying at-risk students using performance analytics and attendance modeling with SHAP tree explainers.
+   - *Tech*: Next.js, TypeScript, Python, FastAPI, Scikit-Learn, SHAP, PyTest
 
 ---
 
-## ⚙️ Local Development
+## 🧪 Testing & Quality Assurance
 
-### 1. Prerequisites
-Ensure you have **Node.js** (v18+) and **npm** installed on your system.
-
-### 2. Clone and Install
-Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/Bindu7729/portfolio.git
-cd portfolio
-npm install
+# Run unit tests
+npm test
+
+# Run tests in watch mode
+npx vitest
+
+# Build for production
+npm run build
 ```
 
-### 3. Run Development Server
-Start the local Vite server:
-```bash
-npm run dev
-```
-Open **`http://localhost:5173`** in your browser to view the application.
-
----
-
-## 📄 License
-Developed by Penumala Bindu. For recruitment, collaboration, or educational use.
-All rights reserved © 2026.
+**Test Coverage Highlights:**
+- **Schema Validation**: Verified credentials, GitHub profile links, and complete project feature sets.
+- **Project Delimiters**: Multi-format title splitting (hyphens, en-dashes, em-dashes).
+- **Contact Security**: Form input validation and sanitized mailto link generation.
+- **Automated CI**: GitHub Actions workflow testing on every pull request and push to `main`.
