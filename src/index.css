@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  --color-dark-bg: #050505;
+  --color-dark-card: #0d0d0d;
+  --color-dark-card-hover: #121212;
+  --color-crimson: #e50914;
+  --color-crimson-glow: rgba(229, 9, 20, 0.4);
+  --color-gray-text: #a3a3a3;
+  --color-gray-border: #1a1a1a;
+  
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-reverse: float-reverse 6s ease-in-out infinite;
+  --animate-glow-border: glow-border 3s ease-in-out infinite alternate;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes float-reverse {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+  @keyframes glow-border {
+    0% { border-color: rgba(229, 9, 20, 0.2); box-shadow: 0 0 5px rgba(229, 9, 20, 0.1); }
+    100% { border-color: rgba(229, 9, 20, 0.6); box-shadow: 0 0 20px rgba(229, 9, 20, 0.3); }
+  }
+}
+
+/* Custom base elements and utilities */
+html {
+  scroll-behavior: smooth;
+  background-color: #050505;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: #050505;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e50914;
+}
+
+/* Glow Background Effects */
+.radial-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(229, 9, 20, 0.08) 0%, transparent 60%);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(229, 9, 20, 0.3), 0 0 20px rgba(229, 9, 20, 0.1);
+}
+
+.card-glow-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-glow-hover:hover {
+  border-color: rgba(229, 9, 20, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px 0 rgba(229, 9, 20, 0.15);
+  transform: translateY(-4px);
+}
+
+/* Custom Selection Highlight */
+::selection {
+  background-color: #e50914;
+  color: #ffffff;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(13, 13, 13, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.glass-navbar {
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}

@@ -1,0 +1,25 @@
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { About } from './components/About';
+import { Skills } from './components/Skills';
+import { Projects } from './components/Projects';
+import { ExperienceEducation } from './components/ExperienceEducation';
+import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
+
+function App() {
+  return (
+    <div className="bg-[#0A0A0B] min-h-screen text-gray-100 selection:bg-red-600 selection:text-white">
+      <Navbar />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <ExperienceEducation />
+      <Contact />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
