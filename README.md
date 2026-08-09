@@ -1,75 +1,80 @@
-# React + TypeScript + Vite
+# Penumala Bindu — Full-Stack Developer Portfolio 🚀💻
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance, and visually stunning personal developer portfolio website designed to showcase professional engineering capabilities, technical skills, and featured software applications.
 
-Currently, two official plugins are available:
+🔗 **Live Website**: [https://portfolio-lemon-omega-34.vercel.app/](https://portfolio-lemon-omega-34.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Key Highlights & Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎭 **Premium Interactive UI**: Dark-themed, glassmorphic design system tailored with custom bezier animations, hover glow states, and micro-interactions powered by **Framer Motion**.
+- 🛠️ **Modern Styling (Tailwind v4)**: Developed natively using the next-generation **Tailwind CSS v4** engine, with custom configurations and clean typography.
+- 🔤 **Curated Typography**: Integrated Google Fonts—**Space Grotesk** for modern display headings and **Outfit** for clean body readability.
+- 💻 **Dynamic Skills Showcase**: Interactive category grid showcasing technical domains, complete with custom-rendered SVG branding badges.
+- 📁 **Featured Projects Section**: High-fidelity product cards illustrating technical highlights, tech stacks, and direct Git checkout actions.
+- ⏳ **Experience Timeline**: Clear educational and internship log detailing smart-contract workflows, ServiceNow ATF testing, and MERN stack development.
+- 📄 **Integrated Resume System**: Direct download triggers connecting recruiters to a professionally compiled PDF resume.
+- 📱 **Fully Responsive Layout**: Optimally adapted across mobile, tablet, and widescreen layouts.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📁 Featured Projects Showcased
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. **CodeVista — Program Visualizer** 🚀
+   - Interactive Programming Visualization Platform supporting step-by-step trace animations of loops, variable scopes, and reference heaps.
+   - *Tech*: React, TypeScript, Tailwind CSS, Node.js
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. **PrepSuite AI — Placement Prep Platform** 🧠
+   - Full-stack candidate evaluation platform replicating enterprise recruitment pipelines with coding sandboxes and recruitment tracking.
+   - *Tech*: React, Tailwind CSS, Node.js, Express.js, MongoDB
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+3. **PlanMyJourney — Travel Planner** 🗺️
+   - Premium travel planning and logistics management platform for user itinerary tracking.
+   - *Tech*: React, Tailwind CSS, Node.js, MongoDB
 
+4. **My Coffee Website — Storefront** ☕
+   - Modern Coffee Shop storefront web portal built with custom CSS and vanilla JS.
+   - *Tech*: HTML5, CSS3, JavaScript
+
+5. **Darshan — Temple Booking System** 🛕
+   - Temple Darshan Booking and queue slot allocation management system.
+   - *Tech*: React, Node.js, Express.js, CSS3
+
+---
+
+## 🛠️ Technology Stack
+
+- **Frontend Core**: React 19, TypeScript
+- **Styling**: Tailwind CSS v4, Vanilla CSS
+- **Icons**: Lucide React, Custom SVGs
+- **Animations**: Framer Motion
+- **Build Tool**: Vite
+
+---
+
+## ⚙️ Local Development
+
+### 1. Prerequisites
+Ensure you have **Node.js** (v18+) and **npm** installed on your system.
+
+### 2. Clone and Install
+Clone the repository and install dependencies:
+```bash
+git clone https://github.com/Bindu7729/portfolio.git
+cd portfolio
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+### 3. Run Development Server
+Start the local Vite server:
+```bash
+npm run dev
 ```
+Open **`http://localhost:5173`** in your browser to view the application.
+
+---
+
+## 📄 License
+Developed by Penumala Bindu. For recruitment, collaboration, or educational use.
+All rights reserved © 2026.
