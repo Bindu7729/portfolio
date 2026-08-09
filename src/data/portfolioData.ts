@@ -35,7 +35,7 @@ export const projectsData: Project[] = [
       "Designed for student learning and DSA debugging"
     ],
     githubUrl: "https://github.com/Bindu7729/codeVista",
-    liveUrl: "https://github.com/Bindu7729/codeVista",
+    liveUrl: "https://client-six-gules.vercel.app",
     image: "/projects/codevista.jpg"
   },
   {
@@ -49,7 +49,7 @@ export const projectsData: Project[] = [
       "AI Mock Booth supporting continuous user response-tracking nodes"
     ],
     githubUrl: "https://github.com/Bindu7729/prepsuite-ai",
-    liveUrl: "https://github.com/Bindu7729/prepsuite-ai",
+    liveUrl: "https://prepsuite-ai-byyu.vercel.app",
     image: "/projects/prepsuite_ai.jpg"
   },
   {
@@ -91,7 +91,7 @@ export const projectsData: Project[] = [
       "Responsive customer scheduling calendar views"
     ],
     githubUrl: "https://github.com/Bindu7729/darsan",
-    liveUrl: "https://github.com/Bindu7729/darsan",
+    liveUrl: "https://darsan-temple.vercel.app",
     image: "/projects/darshan.jpg"
   }
 ];
