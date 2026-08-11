@@ -78,7 +78,7 @@ export const projectsData: Project[] = [
     ],
     githubUrl: "https://github.com/Bindu7729/my-cofffe-webiste",
     liveUrl: "https://my-cofffe-webiste.vercel.app",
-    image: "/projects/coffee.jpg"
+    image: "/projects/coffee.png"
   },
   {
     id: "darshan",
@@ -92,7 +92,7 @@ export const projectsData: Project[] = [
     ],
     githubUrl: "https://github.com/Bindu7729/darsan",
     liveUrl: "https://frontend-beryl-tau-20.vercel.app",
-    image: "/projects/darshan.jpg"
+    image: "/projects/darshan.png"
   }
 ];
 
