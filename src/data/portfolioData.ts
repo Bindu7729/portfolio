@@ -35,8 +35,8 @@ export const projectsData: Project[] = [
       "Designed for student learning and DSA debugging"
     ],
     githubUrl: "https://github.com/Bindu7729/codeVista",
-    liveUrl: "https://client-six-gules.vercel.app",
-    image: "/projects/codevista.jpg"
+    liveUrl: "https://client-iota-olive-48.vercel.app/",
+    image: "/projects/codevista.png"
   },
   {
     id: "prepsuite-ai",
