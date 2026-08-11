@@ -49,8 +49,8 @@ export const projectsData: Project[] = [
       "AI Mock Booth supporting continuous user response-tracking nodes"
     ],
     githubUrl: "https://github.com/Bindu7729/prepsuite-ai",
-    liveUrl: "https://prepsuite-ai-byyu.vercel.app",
-    image: "/projects/prepsuite_ai.jpg"
+    liveUrl: "https://prepsuite-ai-byyu-eight.vercel.app/",
+    image: "/projects/prepsuite_ai.png"
   },
   {
     id: "planmyjourney",
