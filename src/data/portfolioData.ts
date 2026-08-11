@@ -63,8 +63,8 @@ export const projectsData: Project[] = [
       "Clean, responsive multi-device log dashboard"
     ],
     githubUrl: "https://github.com/Bindu7729/-PlanMyJourney-",
-    liveUrl: "https://github.com/Bindu7729/-PlanMyJourney-",
-    image: "/projects/planmyjourney.jpg"
+    liveUrl: "https://frontend-beryl-tau-20.vercel.app",
+    image: "/projects/planmyjourney.png"
   },
   {
     id: "my-coffee-website",
