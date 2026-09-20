@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import { personalInfo } from '../data/portfolioData';
-import profilePhoto from '../assets/passport size photo.png';
 import { Cpu, GraduationCap, Award, Users } from 'lucide-react';
 
 export const About = () => {
@@ -14,34 +12,16 @@ export const About = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        {/* Left Side: Avatar Panel */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="lg:col-span-5 flex justify-center"
-        >
-          <div className="relative w-full max-w-sm aspect-square bg-[#121215] rounded-3xl p-3 border border-red-900/40 shadow-[0_0_30px_rgba(229,9,20,0.15)] group overflow-hidden">
-            {/* Background neon accent */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-red-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            <img
-              src={profilePhoto}
-              alt={personalInfo.name}
-              className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 ease-out"
-            />
-          </div>
-        </motion.div>
-
         {/* Right Side: Professional Biography & Unique highlights */}
         <motion.div 
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-7 flex flex-col gap-6 text-left"
+          className="lg:col-span-12 flex flex-col gap-6 text-left"
         >
           <p className="text-gray-300 text-lg leading-relaxed">
-            I am a detail-oriented Computer Science and Engineering undergraduate at <strong className="text-white font-bold">Mohan Babu University</strong> with a strong academic record (<strong className="text-red-500 font-bold">8.72 CGPA</strong>). I focus on engineering highly scalable full-stack applications, designing robust DBMS schemas, and implementing workflow automation solutions.
+            I am a detail-oriented Computer Science and Engineering undergraduate at <strong className="text-white font-bold">Mohan Babu University</strong> with a strong academic record (<strong className="text-red-500 font-bold">8.89 CGPA</strong>). I focus on engineering highly scalable full-stack applications, designing robust DBMS schemas, and implementing workflow automation solutions.
           </p>
           
           <p className="text-gray-300 text-lg leading-relaxed">
