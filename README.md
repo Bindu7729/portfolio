@@ -2,7 +2,7 @@
 
 A modern, high-performance, and visually stunning personal developer portfolio website designed to showcase professional engineering capabilities, technical skills, and featured software applications.
 
-🔗 **Live Website**: [https://portfolio-lemon-omega-34.vercel.app/](https://portfolio-lemon-omega-34.vercel.app/)
+🔗 **Live Website**: https://portfolio-lemon-omega-34.vercel.app/
 
 ---
 
