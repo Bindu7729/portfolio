@@ -2,8 +2,23 @@ import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
+import { useState } from 'react';
 
 export const Contact = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !message) {
+      alert("Please enter at least your name and a message.");
+      return;
+    }
+    const mailtoLink = `mailto:${personalInfo.email}?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message + '\n\nReply to: ' + email)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section id="contact" className="py-20 px-6 max-w-6xl mx-auto">
       <h2 className="text-3xl font-extrabold text-white mb-2 tracking-tight">
@@ -51,21 +66,30 @@ export const Contact = () => {
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
           className="md:col-span-7 bg-[#121215] p-6 rounded-2xl border border-red-600/40 shadow-[0_0_25px_rgba(229,9,20,0.15)] flex flex-col gap-4"
         >
           <input
             type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
             placeholder="Your Name"
             className="w-full bg-[#0A0A0B] border border-red-900/30 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-600 transition-colors"
           />
           <input
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
             placeholder="Your Email"
             className="w-full bg-[#0A0A0B] border border-red-900/30 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-600 transition-colors"
           />
           <textarea
             rows={4}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            required
             placeholder="Your Message"
             className="w-full bg-[#0A0A0B] border border-red-900/30 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-600 transition-colors"
           ></textarea>
