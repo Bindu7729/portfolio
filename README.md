@@ -33,13 +33,13 @@ A modern, high-performance, and visually stunning personal developer portfolio w
    - Premium travel planning and logistics management platform for user itinerary tracking.
    - *Tech*: React, Tailwind CSS, Node.js, MongoDB
 
-4. **My Coffee Website — Storefront** ☕
-   - Modern Coffee Shop storefront web portal built with custom CSS and vanilla JS.
-   - *Tech*: HTML5, CSS3, JavaScript
+4. **Ghostline — Secure Communication Platform** 🔒
+   - Secure peer-to-peer communication platform with real-time encrypted messaging and WebRTC audio/video calls.
+   - *Tech*: Next.js, WebRTC, Socket.io, Tailwind CSS
 
-5. **Darshan — Temple Booking System** 🛕
-   - Temple Darshan Booking and queue slot allocation management system.
-   - *Tech*: React, Node.js, Express.js, CSS3
+5. **EduRisk AI — Student Dropout Risk Dashboard** 📊
+   - Predictive dashboard identifying at-risk students using performance analytics and attendance modeling.
+   - *Tech*: React, Node.js, Express.js, MongoDB, Recharts
 
 ---
 
