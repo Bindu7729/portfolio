@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+
+<defs>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+    <circle cx="8" cy="8" r="1.1" fill="rgba(26,23,20,0.12)" />
+  </pattern>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow+Condensed:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+    .font-anton { font-family: 'Anton', Impact, sans-serif; }
+    .font-cond { font-family: 'Barlow Condensed', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+  </style>
+</defs>
+
+  <rect width="800" height="500" fill="#f5efe6" />
+  <rect width="800" height="500" fill="url(#dots)" />
+
+  <g transform="translate(0, 0)">
+    
+    <!-- Hard shadow -->
+    <rect x="56" y="41" width="700" height="410" rx="14" fill="#1a1714" />
+    <!-- Window Body Base -->
+    <rect x="50" y="35" width="700" height="410" rx="14" fill="#fffaf2" stroke="#1a1714" stroke-width="2.5" />
+    <!-- Window Bar -->
+    <path d="M 50 35 L 750 35 L 750 78 L 50 78 Z" fill="#ebe2d4" stroke="#1a1714" stroke-width="2.5" />
+    <circle cx="75" cy="56" r="6" fill="#c8532f" stroke="#1a1714" stroke-width="1.2" />
+    <circle cx="94" cy="56" r="6" fill="#e9a62a" stroke="#1a1714" stroke-width="1.2" />
+    <circle cx="113" cy="56" r="6" fill="#2e6e66" stroke="#1a1714" stroke-width="1.2" />
+    <!-- Address Pill -->
+    <rect x="145" y="45" width="580" height="23" rx="11.5" fill="#fffaf2" stroke="#1a1714" stroke-width="1.2" />
+    <text x="435" y="61" text-anchor="middle" class="font-mono" font-size="11" fill="#6b6259" font-weight="500">edurisk.local / student-profile</text>
+    
+
+    <text x="80" y="112" class="font-sans" font-size="17" font-weight="700" fill="#1a1714">Student #8492</text>
+    <text x="80" y="130" class="font-mono" font-size="11" fill="#6b6259">Random Forest / SHAP Analysis</text>
+    
+    <rect x="635" y="98" width="85" height="24" rx="12" fill="#fae8e2" stroke="#c8532f" stroke-width="1.5" />
+    <text x="677.5" y="114" text-anchor="middle" class="font-cond" font-size="11" font-weight="800" fill="#c8532f" letter-spacing="1">HIGH RISK</text>
+
+    <!-- Main Metric Box -->
+    <rect x="80" y="148" width="640" height="114" rx="10" fill="#f5efe6" stroke="#1a1714" stroke-width="1.8" />
+    <text x="104" y="176" class="font-mono" font-size="10.5" font-weight="600" fill="#6b6259" letter-spacing="1.2">PREDICTED DROPOUT PROBABILITY</text>
+    <text x="104" y="218" class="font-anton" font-size="44" fill="#1a1714">82%</text>
+    <text x="104" y="244" class="font-mono" font-size="11.5" font-weight="600" fill="#c8532f">↑ Increasing (WebSocket)</text>
+
+    <!-- Gauge Ring -->
+    <g transform="translate(650, 205)">
+      <circle cx="0" cy="0" r="34" fill="none" stroke="#e6ded0" stroke-width="7" />
+      <circle cx="0" cy="0" r="34" fill="none" stroke="#c8532f" stroke-width="7" stroke-dasharray="213" stroke-dashoffset="40" stroke-linecap="round" transform="rotate(-90)" />
+      <circle cx="0" cy="0" r="6" fill="#c8532f" />
+    </g>
+
+    <!-- SHAP Impact Section -->
+    <text x="80" y="286" class="font-mono" font-size="10.5" font-weight="700" fill="#6b6259" letter-spacing="1.5">SHAP FEATURE IMPACT</text>
+    
+    <!-- Bar 1 -->
+    <text x="80" y="315" class="font-sans" font-size="12" font-weight="600" fill="#1a1714">Low Engagement</text>
+    <rect x="220" y="306" width="440" height="11" rx="5.5" fill="#e8dfd3" />
+    <rect x="220" y="306" width="360" height="11" rx="5.5" fill="#c8532f" />
+    <text x="675" y="316" class="font-mono" font-size="11.5" font-weight="700" fill="#c8532f">+0.42</text>
+
+    <!-- Bar 2 -->
+    <text x="80" y="347" class="font-sans" font-size="12" font-weight="600" fill="#1a1714">Missed Deadlines</text>
+    <rect x="220" y="338" width="440" height="11" rx="5.5" fill="#e8dfd3" />
+    <rect x="220" y="338" width="220" height="11" rx="5.5" fill="#e9a62a" />
+    <text x="675" y="348" class="font-mono" font-size="11.5" font-weight="700" fill="#e9a62a">+0.21</text>
+
+    <!-- Bar 3 -->
+    <text x="80" y="379" class="font-sans" font-size="12" font-weight="600" fill="#1a1714">Past Grades</text>
+    <rect x="220" y="370" width="440" height="11" rx="5.5" fill="#e8dfd3" />
+    <rect x="220" y="370" width="145" height="11" rx="5.5" fill="#2e6e66" />
+    <text x="675" y="380" class="font-mono" font-size="11.5" font-weight="700" fill="#2e6e66">-0.15</text>
+  </g>
+
+  <!-- Bottom Right Tilted Sticker -->
+  <g transform="translate(635, 385) rotate(-4)">
+    <rect x="4" y="4" width="135" height="66" rx="10" fill="#1a1714" />
+    <rect x="0" y="0" width="135" height="66" rx="10" fill="#ffffff" stroke="#1a1714" stroke-width="2.5" />
+    <text x="67.5" y="36" text-anchor="middle" class="font-anton" font-size="34" fill="#c8532f">82%</text>
+    <text x="67.5" y="54" text-anchor="middle" class="font-cond" font-size="12.5" font-weight="800" fill="#1a1714" letter-spacing="1">RISK, EXPLAINED</text>
+  </g>
+</svg>

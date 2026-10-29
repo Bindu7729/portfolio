@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './Icons';
-import { useState } from 'react';
+import { Kicker, RiseWords, Sticker } from './ui';
 
 export const Contact = () => {
   const [name, setName] = useState('');
@@ -11,95 +11,55 @@ export const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !message) {
-      alert("Please enter at least your name and a message.");
-      return;
-    }
-    const mailtoLink = `mailto:${personalInfo.email}?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message + '\n\nReply to: ' + email)}`;
-    window.location.href = mailtoLink;
+    window.location.href = `mailto:${personalInfo.email}?subject=${encodeURIComponent(`Portfolio contact from ${name}`)}&body=${encodeURIComponent(`${message}\n\nReply to: ${email}`)}`;
   };
 
-  return (
-    <section id="contact" className="py-20 px-6 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-extrabold text-white mb-2 tracking-tight">
-        Let's <span className="text-red-600">Build Together</span>
-      </h2>
-      <div className="w-12 h-1 bg-red-600 rounded-full mb-10"></div>
+  const rows = [
+    { icon: Mail, text: personalInfo.email, href: `mailto:${personalInfo.email}` },
+    { icon: Phone, text: personalInfo.phone, href: `tel:${personalInfo.phone.replace(/\s/g, '')}` },
+    { icon: MapPin, text: personalInfo.location },
+  ];
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="md:col-span-5 flex flex-col gap-6"
-        >
-          <p className="text-gray-300 text-sm leading-relaxed">
-            I am always open to discussing full-stack development roles, projects, and collaboration opportunities.
+  return (
+    <section id="contact" className="ink-dots relative overflow-hidden px-4 py-24 text-paper sm:px-6">
+      <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1fr_1.1fr]">
+        <div>
+          <Kicker n="05" dark>Contact</Kicker>
+          <h2 className="font-anton text-[clamp(2.6rem,7vw,5rem)] uppercase leading-[0.95]">
+            <RiseWords text="Let's build" /> <span className="hl inline-block">something.</span>
+          </h2>
+          <p className="mt-6 max-w-md text-lg text-paper/75">
+            Open to full-stack internships, projects and collaborations. My inbox is always open.
           </p>
 
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-3 text-gray-300 text-sm">
-              <Mail className="text-red-500" size={18} />
-              <span>{personalInfo.email}</span>
-            </div>
-            <div className="flex items-center gap-3 text-gray-300 text-sm">
-              <Phone className="text-red-500" size={18} />
-              <span>{personalInfo.phone}</span>
-            </div>
-            <div className="flex items-center gap-3 text-gray-300 text-sm">
-              <MapPin className="text-red-500" size={18} />
-              <span>{personalInfo.location}</span>
-            </div>
-          </div>
+          <ul className="mt-8 space-y-4">
+            {rows.map(({ icon: Icon, text, href }) => (
+              <li key={text} className="flex items-center gap-3">
+                <span className="grid h-10 w-10 place-items-center rounded-lg border-2 border-paper/25 text-mustard"><Icon size={18} /></span>
+                {href ? <a href={href} className="break-all py-2 hover:text-mustard">{text}</a> : <span>{text}</span>}
+              </li>
+            ))}
+          </ul>
 
-          <div className="flex items-center gap-4 mt-2">
-            <a href={personalInfo.github} target="_blank" rel="noreferrer" className="p-3 bg-[#121215] rounded-full border border-red-900/40 text-gray-300 hover:text-red-500 hover:border-red-600 transition-all">
-              <GithubIcon size={18} />
-            </a>
-            <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="p-3 bg-[#121215] rounded-full border border-red-900/40 text-gray-300 hover:text-red-500 hover:border-red-600 transition-all">
-              <LinkedinIcon size={18} />
-            </a>
+          <div className="mt-8 flex gap-3">
+            <a href={personalInfo.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="btn bg-paper p-3 text-ink"><GithubIcon size={20} /></a>
+            <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="btn bg-paper p-3 text-ink"><LinkedinIcon size={20} /></a>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.form 
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          onSubmit={handleSubmit}
-          className="md:col-span-7 bg-[#121215] p-6 rounded-2xl border border-red-600/40 shadow-[0_0_25px_rgba(229,9,20,0.15)] flex flex-col gap-4"
-        >
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            placeholder="Your Name"
-            className="w-full bg-[#0A0A0B] border border-red-900/30 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-600 transition-colors"
-          />
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            placeholder="Your Email"
-            className="w-full bg-[#0A0A0B] border border-red-900/30 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-600 transition-colors"
-          />
-          <textarea
-            rows={4}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-            placeholder="Your Message"
-            className="w-full bg-[#0A0A0B] border border-red-900/30 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-red-600 transition-colors"
-          ></textarea>
-          <button
-            type="submit"
-            className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium text-sm rounded-xl shadow-[0_0_15px_rgba(229,9,20,0.4)] transition-all self-start"
-          >
-            Send Message
+        <div className="relative mt-24 self-start sm:mt-28 md:mt-16">
+        <Sticker pose="peace" from="bottom" tilt={-3} bubble="talk soon!"
+          className="absolute -top-[6.5rem] right-4 z-0 w-28 sm:-top-[8rem] sm:w-36" />
+        <form onSubmit={handleSubmit} className="card relative z-10 flex flex-col gap-4 p-6 text-ink sm:p-8">
+          <h3 className="font-anton text-3xl uppercase">Drop a message</h3>
+          <input className="field" required value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" aria-label="Your name" />
+          <input className="field" required type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Your email" aria-label="Your email" />
+          <textarea className="field" required rows={5} value={message} onChange={(e) => setMessage(e.target.value)} placeholder="What are we building?" aria-label="Your message" />
+          <button type="submit" className="btn self-start bg-orange text-paper">
+            Send it <Send size={18} />
           </button>
-        </motion.form>
+        </form>
+        </div>
       </div>
     </section>
   );

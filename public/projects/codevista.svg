@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+
+<defs>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+    <circle cx="8" cy="8" r="1.1" fill="rgba(26,23,20,0.12)" />
+  </pattern>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow+Condensed:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+    .font-anton { font-family: 'Anton', Impact, sans-serif; }
+    .font-cond { font-family: 'Barlow Condensed', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+  </style>
+</defs>
+
+  <rect width="800" height="500" fill="#f5efe6" />
+  <rect width="800" height="500" fill="url(#dots)" />
+
+  <g transform="translate(0, 0)">
+    
+    <!-- Hard shadow -->
+    <rect x="56" y="41" width="700" height="410" rx="14" fill="#1a1714" />
+    <!-- Window Body Base -->
+    <rect x="50" y="35" width="700" height="410" rx="14" fill="#fffaf2" stroke="#1a1714" stroke-width="2.5" />
+    <!-- Window Bar -->
+    <path d="M 50 35 L 750 35 L 750 78 L 50 78 Z" fill="#ebe2d4" stroke="#1a1714" stroke-width="2.5" />
+    <circle cx="75" cy="56" r="6" fill="#c8532f" stroke="#1a1714" stroke-width="1.2" />
+    <circle cx="94" cy="56" r="6" fill="#e9a62a" stroke="#1a1714" stroke-width="1.2" />
+    <circle cx="113" cy="56" r="6" fill="#2e6e66" stroke="#1a1714" stroke-width="1.2" />
+    <!-- Address Pill -->
+    <rect x="145" y="45" width="580" height="23" rx="11.5" fill="#fffaf2" stroke="#1a1714" stroke-width="1.2" />
+    <text x="435" y="61" text-anchor="middle" class="font-mono" font-size="11" fill="#6b6259" font-weight="500">codevista.dev / visualizer / trace</text>
+    
+
+    <text x="80" y="112" class="font-sans" font-size="17" font-weight="700" fill="#1a1714">Execution Trace Visualizer</text>
+    <text x="80" y="130" class="font-mono" font-size="11" fill="#6b6259">AST Interpreter / Call Stack &amp; Pointer Heap</text>
+    
+    <rect x="615" y="98" width="105" height="24" rx="12" fill="#fef3dc" stroke="#e9a62a" stroke-width="1.5" />
+    <text x="667.5" y="114" text-anchor="middle" class="font-cond" font-size="11" font-weight="800" fill="#e9a62a" letter-spacing="1">STEP 14 / 28</text>
+
+    <!-- Split View -->
+    <!-- Left Pane: Code Editor -->
+    <rect x="80" y="148" width="310" height="210" rx="10" fill="#1a1714" stroke="#1a1714" stroke-width="1.5" />
+    <text x="100" y="178" class="font-mono" font-size="11.5" fill="#6b6259">01  <tspan fill="#e9a62a">def</tspan> <tspan fill="#ffffff">trace_loop(arr):</tspan></text>
+    <text x="100" y="202" class="font-mono" font-size="11.5" fill="#6b6259">02      heap = MinHeap()</text>
+    <!-- Active highlighted line -->
+    <rect x="88" y="214" width="294" height="26" fill="rgba(233,166,42,0.22)" rx="4" />
+    <text x="100" y="232" class="font-mono" font-size="11.5" fill="#e9a62a">03  ▶   heap.push(arr[i])</text>
+    <text x="100" y="258" class="font-mono" font-size="11.5" fill="#6b6259">04      curr = heap.peek()</text>
+    <text x="100" y="282" class="font-mono" font-size="11.5" fill="#6b6259">05      <tspan fill="#c8532f">return</tspan> curr.val</text>
+    <text x="100" y="336" class="font-mono" font-size="10.5" fill="#2e6e66">✓ Variables: i=3, arr[i]=42</text>
+
+    <!-- Right Pane: Memory Heap Visualizer -->
+    <rect x="410" y="148" width="310" height="210" rx="10" fill="#f5efe6" stroke="#1a1714" stroke-width="1.8" />
+    <text x="430" y="176" class="font-mono" font-size="10.5" font-weight="700" fill="#6b6259" letter-spacing="1">MEMORY HEAP &amp; POINTERS</text>
+    
+    <!-- Heap Nodes -->
+    <rect x="430" y="196" width="130" height="42" rx="6" fill="#fffaf2" stroke="#c8532f" stroke-width="1.8" />
+    <text x="442" y="214" class="font-mono" font-size="10" fill="#c8532f" font-weight="700">PTR [0x4F2A]</text>
+    <text x="442" y="228" class="font-sans" font-size="11" font-weight="700" fill="#1a1714">Node(val: 42)</text>
+
+    <!-- Arrow -->
+    <path d="M 565 217 L 595 217" stroke="#1a1714" stroke-width="2" stroke-dasharray="3 3" />
+    <polygon points="595,213 605,217 595,221" fill="#1a1714" />
+
+    <rect x="610" y="196" width="95" height="42" rx="6" fill="#fffaf2" stroke="#2e6e66" stroke-width="1.5" />
+    <text x="620" y="214" class="font-mono" font-size="10" fill="#2e6e66">NEXT</text>
+    <text x="620" y="228" class="font-sans" font-size="11" font-weight="700" fill="#1a1714">Node(19)</text>
+
+    <!-- Scrubber -->
+    <rect x="430" y="260" width="270" height="32" rx="6" fill="#fffaf2" stroke="#1a1714" stroke-width="1.2" />
+    <text x="442" y="280" class="font-mono" font-size="10.5" fill="#1a1714">Step: <tspan font-weight="700" fill="#e9a62a">14 / 28</tspan> [◀ PREV] [NEXT ▶]</text>
+
+    <!-- Scope table snippet -->
+    <text x="430" y="324" class="font-mono" font-size="10.5" fill="#6b6259">Heap Allocated: 3 Nodes · 96 bytes</text>
+    <text x="430" y="342" class="font-mono" font-size="10.5" font-weight="600" fill="#2e6e66">● Zero Memory Leaks Detected</text>
+
+    <!-- Step Scrubber bar at bottom -->
+    <rect x="80" y="380" width="640" height="38" rx="8" fill="#f5efe6" stroke="#1a1714" stroke-width="1.5" />
+    <text x="104" y="404" class="font-mono" font-size="11" fill="#1a1714">Timeline: 0s ───[●]──────── 2.4s (Interactive Trace Animation)</text>
+  </g>
+
+  <!-- Bottom Right Tilted Sticker -->
+  <g transform="translate(635, 385) rotate(-4)">
+    <rect x="4" y="4" width="135" height="66" rx="10" fill="#1a1714" />
+    <rect x="0" y="0" width="135" height="66" rx="10" fill="#ffffff" stroke="#1a1714" stroke-width="2.5" />
+    <text x="67.5" y="36" text-anchor="middle" class="font-anton" font-size="34" fill="#c8532f">TRACE</text>
+    <text x="67.5" y="54" text-anchor="middle" class="font-cond" font-size="12.5" font-weight="800" fill="#1a1714" letter-spacing="1">HEAP &amp; SCOPE</text>
+  </g>
+</svg>

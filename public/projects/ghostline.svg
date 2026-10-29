@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+
+<defs>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+    <circle cx="8" cy="8" r="1.1" fill="rgba(26,23,20,0.12)" />
+  </pattern>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow+Condensed:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+    .font-anton { font-family: 'Anton', Impact, sans-serif; }
+    .font-cond { font-family: 'Barlow Condensed', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+  </style>
+</defs>
+
+  <rect width="800" height="500" fill="#f5efe6" />
+  <rect width="800" height="500" fill="url(#dots)" />
+
+  <g transform="translate(0, 0)">
+    
+    <!-- Hard shadow -->
+    <rect x="56" y="41" width="700" height="410" rx="14" fill="#1a1714" />
+    <!-- Window Body Base -->
+    <rect x="50" y="35" width="700" height="410" rx="14" fill="#fffaf2" stroke="#1a1714" stroke-width="2.5" />
+    <!-- Window Bar -->
+    <path d="M 50 35 L 750 35 L 750 78 L 50 78 Z" fill="#ebe2d4" stroke="#1a1714" stroke-width="2.5" />
+    <circle cx="75" cy="56" r="6" fill="#c8532f" stroke="#1a1714" stroke-width="1.2" />
+    <circle cx="94" cy="56" r="6" fill="#e9a62a" stroke="#1a1714" stroke-width="1.2" />
+    <circle cx="113" cy="56" r="6" fill="#2e6e66" stroke="#1a1714" stroke-width="1.2" />
+    <!-- Address Pill -->
+    <rect x="145" y="45" width="580" height="23" rx="11.5" fill="#fffaf2" stroke="#1a1714" stroke-width="1.2" />
+    <text x="435" y="61" text-anchor="middle" class="font-mono" font-size="11" fill="#6b6259" font-weight="500">ghostline.im / encrypted-session</text>
+    
+
+    <!-- Channel Info Bar -->
+    <circle cx="95" cy="114" r="16" fill="#2e6e66" />
+    <text x="95" y="120" text-anchor="middle" class="font-sans" font-size="13" font-weight="700" fill="#ffffff">AM</text>
+    
+    <text x="124" y="112" class="font-sans" font-size="16" font-weight="700" fill="#1a1714">Alex Morgan</text>
+    <circle cx="127" cy="126" r="4" fill="#2e6e66" />
+    <text x="137" y="129" class="font-mono" font-size="10.5" font-weight="600" fill="#2e6e66">E2EE ACTIVE · P2P WEBRTC</text>
+
+    <!-- Tag -->
+    <rect x="615" y="98" width="105" height="24" rx="12" fill="#e5f0ee" stroke="#2e6e66" stroke-width="1.5" />
+    <text x="667.5" y="114" text-anchor="middle" class="font-cond" font-size="10.5" font-weight="800" fill="#2e6e66" letter-spacing="1">ENCRYPTED</text>
+
+    <!-- Live Audio Call Card -->
+    <rect x="80" y="146" width="640" height="64" rx="10" fill="#f5efe6" stroke="#1a1714" stroke-width="1.8" />
+    <circle cx="112" cy="178" r="16" fill="#c8532f" />
+    <!-- Audio Waveform bars -->
+    <g transform="translate(145, 168)" fill="#1a1714">
+      <rect x="0" y="6" width="4" height="12" rx="2" fill="#c8532f" />
+      <rect x="8" y="2" width="4" height="20" rx="2" fill="#c8532f" />
+      <rect x="16" y="8" width="4" height="8" rx="2" fill="#c8532f" />
+      <rect x="24" y="0" width="4" height="24" rx="2" fill="#c8532f" />
+      <rect x="32" y="4" width="4" height="16" rx="2" fill="#c8532f" />
+      <rect x="40" y="7" width="4" height="10" rx="2" fill="#c8532f" />
+    </g>
+    <text x="200" y="174" class="font-sans" font-size="13" font-weight="700" fill="#1a1714">Secure Voice Channel</text>
+    <text x="200" y="190" class="font-mono" font-size="10.5" fill="#6b6259">04:18 · AES-256-GCM Envelope</text>
+    <rect x="610" y="162" width="90" height="30" rx="8" fill="#c8532f" stroke="#1a1714" stroke-width="1.2" />
+    <text x="655" y="181" text-anchor="middle" class="font-cond" font-size="12" font-weight="800" fill="#ffffff" letter-spacing="0.8">CONNECTED</text>
+
+    <!-- Chat Messages -->
+    <!-- Incoming message -->
+    <rect x="80" y="226" width="400" height="60" rx="10" fill="#ffffff" stroke="#1a1714" stroke-width="1.5" />
+    <text x="100" y="250" class="font-sans" font-size="12.5" fill="#1a1714">Ephemeral key exchanged. Voice channel ready.</text>
+    <text x="100" y="271" class="font-mono" font-size="10" fill="#6b6259">14:02 · Direct WebRTC Peer</text>
+
+    <!-- Outgoing message -->
+    <rect x="320" y="302" width="400" height="60" rx="10" fill="#c8532f" stroke="#1a1714" stroke-width="1.5" />
+    <text x="340" y="326" class="font-sans" font-size="12.5" font-weight="500" fill="#fffaf2">Zero servers hold message envelopes or keys.</text>
+    <text x="340" y="347" class="font-mono" font-size="10" fill="#f5efe6">14:03 · Signed &amp; Delivered ✓✓</text>
+
+    <!-- Bottom Input Field -->
+    <rect x="80" y="380" width="640" height="42" rx="8" fill="#f5efe6" stroke="#1a1714" stroke-width="1.5" />
+    <text x="104" y="406" class="font-sans" font-size="12" fill="#6b6259">Type an encrypted message...</text>
+    <rect x="620" y="386" width="90" height="30" rx="6" fill="#1a1714" />
+    <text x="665" y="405" text-anchor="middle" class="font-cond" font-size="12" font-weight="700" fill="#fffaf2" letter-spacing="0.5">SEND ➔</text>
+  </g>
+
+  <!-- Bottom Right Tilted Sticker -->
+  <g transform="translate(635, 385) rotate(-4)">
+    <rect x="4" y="4" width="135" height="66" rx="10" fill="#1a1714" />
+    <rect x="0" y="0" width="135" height="66" rx="10" fill="#ffffff" stroke="#1a1714" stroke-width="2.5" />
+    <text x="67.5" y="36" text-anchor="middle" class="font-anton" font-size="34" fill="#2e6e66">E2EE</text>
+    <text x="67.5" y="54" text-anchor="middle" class="font-cond" font-size="12.5" font-weight="800" fill="#1a1714" letter-spacing="1">P2P WEBRTC</text>
+  </g>
+</svg>

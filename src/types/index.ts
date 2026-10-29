@@ -1,3 +1,16 @@
+export interface CaseStudySection {
+  overview?: string;
+  challenge: string;
+  keyProblems?: string[];
+  architecture: string;
+  architectureWorkflow?: { step: string; description: string }[];
+  innovations: { title: string; detail: string; impact?: string }[];
+  technicalChallenges?: { problem: string; solution: string }[];
+  outcome: string;
+  metrics: { label: string; value: string; detail?: string }[];
+  learnings?: string[];
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -7,6 +20,13 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   image?: string;
+  category?: string;
+  accentColor?: string;
+  badge?: {
+    main: string;
+    sub: string;
+  };
+  caseStudy?: CaseStudySection;
 }
 
 export interface SkillCategory {

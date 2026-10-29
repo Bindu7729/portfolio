@@ -1,71 +1,108 @@
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Download } from 'lucide-react';
-import { personalInfo } from '../data/portfolioData';
-import profilePhoto from '../assets/passport size photo.png';
+import { useEffect, useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import { personalInfo, heroLines } from '../data/portfolioData';
+
+/** Types each line, holds, deletes, moves to the next. */
+const useTyped = (lines: string[]) => {
+  const [text, setText] = useState('');
+  useEffect(() => {
+    let i = 0, n = 0, del = false;
+    let t: ReturnType<typeof setTimeout>;
+    const tick = () => {
+      const line = lines[i];
+      n += del ? -1 : 1;
+      setText(line.slice(0, n));
+      let wait = del ? 22 : 45;
+      if (!del && n === line.length) { del = true; wait = 1800; }
+      else if (del && n === 0) { del = false; i = (i + 1) % lines.length; wait = 300; }
+      t = setTimeout(tick, wait);
+    };
+    t = setTimeout(tick, 600);
+    return () => clearTimeout(t);
+  }, [lines]);
+  return text;
+};
+
+const rise = (d: number) => ({
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  transition: { delay: d, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] as const },
+});
 
 export const Hero = () => {
+  const typed = useTyped(heroLines);
+  // character leans toward the cursor
+  const mx = useMotionValue(0);
+  const sx = useSpring(mx, { stiffness: 60, damping: 15 });
+  const rot = useTransform(sx, [-1, 1], [-4, 4]);
+  const shift = useTransform(sx, [-1, 1], [-14, 14]);
+
   return (
-    <section id="home" className="min-h-screen pt-32 pb-16 flex items-center justify-center px-6 max-w-6xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col gap-4"
-        >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-display">
-            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-red-200 to-red-500 text-glow">{personalInfo.name}</span>
+    <section
+      id="home"
+      onMouseMove={(e) => mx.set((e.clientX / window.innerWidth) * 2 - 1)}
+      className="paper-dots relative overflow-hidden"
+    >
+      <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 pb-0 pt-12 sm:px-6 md:grid-cols-[1.25fr_1fr] md:pt-16">
+        <div className="relative z-10 pb-10 md:pb-24">
+          <motion.p {...rise(0)} className="mb-2 -rotate-2 font-hand text-2xl text-teal sm:text-3xl">
+            computer science · class of '27
+          </motion.p>
+
+          <h1 className="font-anton uppercase leading-[0.95] text-ink">
+            <motion.span {...rise(0.1)} className="block text-[clamp(3rem,10vw,6.5rem)]">Penumala</motion.span>
+            <motion.span {...rise(0.2)} className="block text-[clamp(3rem,10vw,6.5rem)]">
+              <span className="hl inline-block -rotate-1">Bindu.</span>
+            </motion.span>
+            <motion.span {...rise(0.3)} className="mt-3 block text-[clamp(1.6rem,4.4vw,2.6rem)] text-ink/85">
+              Full-stack developer
+            </motion.span>
           </h1>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-red-500 uppercase tracking-widest text-glow mt-1">
-            {personalInfo.role}
-          </h2>
-          <p className="text-gray-400 text-base leading-relaxed max-w-lg font-sans">
+
+          <motion.div {...rise(0.4)} className="card mt-6 flex max-w-xl items-center gap-3 px-4 py-3 font-mono text-sm sm:text-base">
+            <span className="text-orange">&gt;</span>
+            <span className="min-h-[1.5em] flex-1">{typed}<span className="animate-blink">▍</span></span>
+            <span className="hidden rounded-md bg-teal px-2 py-0.5 text-xs font-bold text-paper sm:inline">LIVE</span>
+          </motion.div>
+
+          <motion.p {...rise(0.5)} className="mt-5 max-w-lg text-lg leading-relaxed text-ink/75">
             {personalInfo.tagline}
-          </p>
+          </motion.p>
 
-          <div className="flex flex-wrap gap-4 mt-4">
-            <a
-              href="#projects"
-              className="px-6 py-3 rounded-full bg-red-600 hover:bg-red-700 text-white font-medium text-sm flex items-center gap-2 shadow-[0_0_20px_rgba(229,9,20,0.4)] transition-all"
-            >
-              View Projects <ArrowUpRight size={16} />
+          <motion.div {...rise(0.6)} className="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#projects" className="btn bg-orange text-paper">
+              View projects <ArrowUpRight size={20} />
             </a>
-            <a
-              href={personalInfo.resumeUrl}
-              download
-              className="px-6 py-3 rounded-full bg-[#121215] hover:bg-[#1c1c21] text-gray-200 border border-red-900/40 hover:border-red-600 font-medium text-sm flex items-center gap-2 transition-all"
-            >
-              Download Resume <Download size={16} />
-            </a>
-          </div>
-        </motion.div>
+            <a href="#contact" className="btn bg-paper text-ink">Say hello</a>
+            <span className="tag rotate-3 bg-mustard px-3 py-1 text-sm text-ink">8.89 CGPA ★</span>
+          </motion.div>
+        </div>
 
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="relative flex justify-center items-center"
-        >
+        <div className="relative mx-auto w-[78%] max-w-[420px] self-end md:w-full">
           <motion.div
-            drag
-            dragConstraints={{ left: -30, right: 30, top: -30, bottom: 30 }}
-            dragElastic={0.2}
-            whileHover={{ scale: 1.05 }}
-            whileDrag={{ scale: 1.1, cursor: "grabbing" }}
-            animate={{ y: [-12, 12, -12], rotate: [-2, 2, -2] }}
-            transition={{ 
-              y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-              rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" }
-            }}
-            className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-2 bg-gradient-to-tr from-red-600 via-red-900 to-transparent flex items-center justify-center shadow-[0_0_40px_rgba(229,9,20,0.4)] cursor-grab z-10"
+            initial={{ y: 200, opacity: 0, rotate: 8 }}
+            animate={{ y: 0, opacity: 1, rotate: 0 }}
+            transition={{ delay: 0.35, type: 'spring', stiffness: 90, damping: 14 }}
           >
-            <img
-              src={profilePhoto}
-              alt={personalInfo.name}
-              className="w-full h-full object-cover rounded-full border-[3px] border-[#121215] pointer-events-none"
+            <motion.img
+              src="/me/point.webp"
+              alt="Illustration of Bindu pointing at you"
+              style={{ rotate: rot, x: shift, transformOrigin: '50% 100%' }}
+              animate={{ scale: [1, 1.015, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              className="w-full drop-shadow-[6px_8px_0_rgb(26_23_20/0.2)]"
             />
           </motion.div>
-        </motion.div>
+          <motion.span
+            initial={{ scale: 0, rotate: -20 }}
+            animate={{ scale: 1, rotate: -6 }}
+            transition={{ delay: 1.1, type: 'spring', stiffness: 260, damping: 14 }}
+            className="absolute -left-2 -top-10 rounded-2xl text-xl sm:-left-6 sm:top-[8%] sm:text-2xl border-2 border-ink bg-paper px-4 py-2 font-hand shadow-[3px_3px_0_var(--color-ink)] sm:-left-6"
+          >
+            yes, you! let's build ↗
+          </motion.span>
+        </div>
       </div>
     </section>
   );
