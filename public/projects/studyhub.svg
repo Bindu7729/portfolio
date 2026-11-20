@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+<defs>
+  <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+    <circle cx="8" cy="8" r="1.1" fill="rgba(30,58,138,0.12)" />
+  </pattern>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow+Condensed:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+    .font-anton { font-family: 'Anton', Impact, sans-serif; }
+    .font-cond { font-family: 'Barlow Condensed', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+  </style>
+</defs>
+
+  <rect width="800" height="500" fill="#f0f7ff" />
+  <rect width="800" height="500" fill="url(#dots)" />
+
+  <g transform="translate(0, 0)">
+    <!-- Hard shadow -->
+    <rect x="56" y="41" width="700" height="410" rx="14" fill="#0f172a" />
+    <!-- Window Body Base -->
+    <rect x="50" y="35" width="700" height="410" rx="14" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" />
+    <!-- Window Bar -->
+    <path d="M 50 35 L 750 35 L 750 78 L 50 78 Z" fill="#1e3a8a" />
+    
+    <!-- Window buttons -->
+    <circle cx="75" cy="56" r="6" fill="#f87171" stroke="#0f172a" stroke-width="1.5" />
+    <circle cx="95" cy="56" r="6" fill="#fbbf24" stroke="#0f172a" stroke-width="1.5" />
+    <circle cx="115" cy="56" r="6" fill="#34d399" stroke="#0f172a" stroke-width="1.5" />
+
+    <!-- Window Title -->
+    <text x="400" y="60" text-anchor="middle" fill="#ffffff" class="font-mono" font-size="13" font-weight="600" letter-spacing="1">STUDYHUB // PLACEMENT &amp; ATS ANALYTICS</text>
+
+    <!-- Badge in top right -->
+    <rect x="635" y="46" width="95" height="22" rx="4" fill="#3b82f6" stroke="#0f172a" stroke-width="1.5" />
+    <text x="682" y="61" text-anchor="middle" fill="#ffffff" class="font-mono" font-size="11" font-weight="700">437 TOPICS</text>
+
+    <!-- Content area -->
+    <!-- Left Card: Topic Hierarchy & Roadmaps -->
+    <rect x="80" y="105" width="290" height="310" rx="10" fill="#f8fafc" stroke="#0f172a" stroke-width="2" />
+    <rect x="80" y="105" width="290" height="36" rx="10" fill="#2563eb" />
+    <path d="M 80 131 L 370 131 L 370 141 L 80 141 Z" fill="#2563eb" />
+    <text x="95" y="128" fill="#ffffff" class="font-mono" font-size="12" font-weight="700">STRUCTURED CURRICULUM</text>
+
+    <!-- Progress metrics inside left card -->
+    <g transform="translate(100, 160)">
+      <text x="0" y="0" fill="#0f172a" class="font-sans" font-size="12" font-weight="600">DSA &amp; Algorithms</text>
+      <text x="210" y="0" fill="#2563eb" class="font-mono" font-size="12" font-weight="700">142 topics</text>
+      <rect x="0" y="8" width="250" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="0" y="8" width="210" height="8" rx="4" fill="#2563eb" />
+
+      <text x="0" y="42" fill="#0f172a" class="font-sans" font-size="12" font-weight="600">DBMS &amp; SQL Mastery</text>
+      <text x="210" y="42" fill="#2563eb" class="font-mono" font-size="12" font-weight="700">86 topics</text>
+      <rect x="0" y="50" width="250" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="0" y="50" width="185" height="8" rx="4" fill="#3b82f6" />
+
+      <text x="0" y="84" fill="#0f172a" class="font-sans" font-size="12" font-weight="600">Operating Systems &amp; Concurrency</text>
+      <text x="210" y="84" fill="#2563eb" class="font-mono" font-size="12" font-weight="700">74 topics</text>
+      <rect x="0" y="92" width="250" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="0" y="92" width="160" height="8" rx="4" fill="#60a5fa" />
+
+      <text x="0" y="126" fill="#0f172a" class="font-sans" font-size="12" font-weight="600">Computer Networks &amp; Security</text>
+      <text x="210" y="126" fill="#2563eb" class="font-mono" font-size="12" font-weight="700">68 topics</text>
+      <rect x="0" y="134" width="250" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="0" y="134" width="145" height="8" rx="4" fill="#93c5fd" />
+
+      <text x="0" y="168" fill="#0f172a" class="font-sans" font-size="12" font-weight="600">System Design &amp; Scalability</text>
+      <text x="210" y="168" fill="#2563eb" class="font-mono" font-size="12" font-weight="700">67 topics</text>
+      <rect x="0" y="176" width="250" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="0" y="176" width="130" height="8" rx="4" fill="#bfdbfe" />
+
+      <rect x="0" y="205" width="250" height="30" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5" />
+      <text x="125" y="224" text-anchor="middle" fill="#1e3a8a" class="font-mono" font-size="11" font-weight="700">TOTAL: 437 TOPICS CATALOGED</text>
+    </g>
+
+    <!-- Right Card: ATS Engine & Retention Analytics -->
+    <rect x="400" y="105" width="320" height="310" rx="10" fill="#f8fafc" stroke="#0f172a" stroke-width="2" />
+    <rect x="400" y="105" width="320" height="36" rx="10" fill="#0f172a" />
+    <path d="M 400 131 L 720 131 L 720 141 L 400 141 Z" fill="#0f172a" />
+    <text x="415" y="128" fill="#ffffff" class="font-mono" font-size="12" font-weight="700">ATS ANALYZER &amp; RETENTION</text>
+
+    <!-- ATS Metrics inside right card -->
+    <g transform="translate(420, 160)">
+      <rect x="0" y="0" width="280" height="65" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="15" y="25" fill="#64748b" class="font-mono" font-size="10" font-weight="600">ATS MATCH SCORE</text>
+      <text x="15" y="52" fill="#1e3a8a" class="font-anton" font-size="28">88.5%</text>
+      <text x="110" y="48" fill="#16a34a" class="font-mono" font-size="11" font-weight="700">+14 Keywords Matched</text>
+
+      <!-- Retention Graph -->
+      <rect x="0" y="80" width="280" height="75" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="15" y="102" fill="#64748b" class="font-mono" font-size="10" font-weight="600">EBBINGHAUS RETENTION DECAY (R = e^-t/S)</text>
+      <!-- Mini curve -->
+      <path d="M 20 140 Q 60 128, 120 132 T 260 145" fill="none" stroke="#2563eb" stroke-width="2.5" />
+      <text x="15" y="125" fill="#0f172a" class="font-mono" font-size="14" font-weight="700">Stability: 4.8d | Retention: 91%</text>
+
+      <!-- Tech Stack pills -->
+      <g transform="translate(0, 175)">
+        <rect x="0" y="0" width="85" height="24" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5" />
+        <text x="42" y="16" text-anchor="middle" fill="#1e3a8a" class="font-mono" font-size="10" font-weight="700">FASTAPI</text>
+
+        <rect x="95" y="0" width="90" height="24" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5" />
+        <text x="140" y="16" text-anchor="middle" fill="#1e3a8a" class="font-mono" font-size="10" font-weight="700">SQLAlchemy</text>
+
+        <rect x="195" y="0" width="85" height="24" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5" />
+        <text x="237" y="16" text-anchor="middle" fill="#1e3a8a" class="font-mono" font-size="10" font-weight="700">PostgreSQL</text>
+      </g>
+    </g>
+
+  </g>
+</svg>

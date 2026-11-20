@@ -22,68 +22,7 @@ export const skillsData: SkillCategory[] = [
 ];
 
 export const projectsData: Project[] = [
-  {
-    id: "ghostline",
-    title: "Ghostline – Secure Communication Platform",
-    category: "REAL-TIME SYSTEMS / WEBRTC / ENCRYPTION",
-    accentColor: "#2e6e66",
-    description: "Full-stack real-time communication platform supporting end-to-end encrypted messaging, media sharing, and peer-to-peer audio/video calling without intermediate server storage.",
-    technologies: ["React", "TypeScript", "TanStack Start", "PostgreSQL", "Supabase", "WebRTC", "Web Crypto API"],
-    features: [
-      "End-to-end encrypted message envelopes and disappearing conversations",
-      "Real-time audio/video peer-to-peer calling via WebRTC data & media mesh",
-      "Zero-knowledge architecture with ephemeral ECDH key negotiation"
-    ],
-    githubUrl: "https://github.com/Bindu7729/communation-main-",
-    liveUrl: "https://communation-main.vercel.app/",
-    image: "/projects/ghostline.png",
-    badge: { main: "E2EE", sub: "P2P WEBRTC" },
-    caseStudy: {
-      overview: "Ghostline is a zero-knowledge, browser-native communications suite engineered for high-concurrency peer-to-peer real-time communication. Unlike centralized chat services that retain message metadata, contact graphs, and chat history on corporate cloud databases, Ghostline ensures that zero conversation plaintext or private decryption keys ever touch an intermediary server.",
-      challenge: "Conventional messaging platforms retain user metadata, message content, and call telemetry on central servers — creating persistent data leak attack surfaces, compliance liabilities, and massive bandwidth bottlenecks. The challenge was to build a system where zero plaintext ever reaches a server, while still delivering sub-100ms peer connection establishment, reliable NAT traversal across strict firewalls, and instant media streaming.",
-      keyProblems: [
-        "Centralized Metadata Harvesting: Even with standard encryption, central servers can harvest social graphs, communication timestamps, and session durations.",
-        "SFU & Media Relay Bottlenecks: Relaying high-definition audio/video streams through cloud servers introduces severe egress bandwidth costs and snooping risks.",
-        "Static Key Vulnerabilities: Long-lived cryptographic keys stored in databases or local storage are vulnerable to forensic extraction without Perfect Forward Secrecy."
-      ],
-      architecture: "Designed a decentralized React + TanStack Start frontend with Supabase Realtime handling ephemeral presence channels and user authentication. WebRTC negotiates direct peer-to-peer data and media channels, bypassing media relay entirely. PostgreSQL stores only ephemeral session metadata (never message content or keys). Each message envelope is AES-256-GCM encrypted client-side before transmission, with session keys derived in-memory via ECDH key agreement.",
-      architectureWorkflow: [
-        { step: "01. Ephemeral Handshake", description: "Browser generates an ephemeral P-256 Elliptic Curve key pair in-memory using Web Crypto API. Public keys are exchanged over TLS." },
-        { step: "02. Signaling & Presence", description: "Supabase Realtime presence channels broker SDP offer/answer exchanges and ICE candidates without inspecting payload contents." },
-        { step: "03. P2P Direct Mesh Binding", description: "WebRTC establishes direct peer-to-peer audio/video and data sockets via STUN reflection, bypassing all cloud servers." },
-        { step: "04. Authenticated Envelope Encryption", description: "Messages are sealed in AES-256-GCM ciphertext with random 96-bit IVs. Session keys are scrubbed from RAM on tab closure." }
-      ],
-      innovations: [
-        { title: "Zero-Knowledge Message Envelopes", detail: "Messages are encrypted with AES-256-GCM before leaving the browser. The server receives only opaque ciphertext blobs — it cannot read, index, or log any conversation content, even under a total database breach scenario.", impact: "Zero plaintext exposure across all cloud infrastructure" },
-        { title: "Ephemeral Session Keys via ECDH", detail: "Each conversation generates a fresh Elliptic Curve Diffie-Hellman key pair. Session keys are derived in-memory and never persisted to disk or the database, making historical decryption impossible even with future server access.", impact: "Guaranteed Perfect Forward Secrecy (PFS)" },
-        { title: "Serverless P2P Audio/Video via WebRTC", detail: "Audio and video streams flow directly between browsers using WebRTC ICE/STUN negotiation. No media relay server touches the stream, eliminating recording surface area and reducing latency to sub-100ms.", impact: "Zero media relay server bandwidth costs" },
-        { title: "Self-Cleaning Presence & Disappearing State", detail: "Supabase Realtime presence channels auto-clean on disconnect. Message records carry a short TTL — they are purged from the database after the session window closes, leaving no persistent forensic trail.", impact: "Automated zero-retention compliance" }
-      ],
-      technicalChallenges: [
-        {
-          problem: "Symmetric NAT Traversal Failures",
-          solution: "Direct peer connections routinely fail when users sit behind symmetric corporate NATs and strict router firewalls. Implemented an adaptive ICE candidate gathering pipeline with parallel STUN server reflection, prioritizing direct host and server-reflexive candidates and keeping relay fallback under 1.5s."
-        },
-        {
-          problem: "Cryptographic Key Hygiene in React SPA",
-          solution: "Standard React state cycles and closures can retain sensitive key references in garbage collector memory across unmounts. Encapsulated all cryptographic operations inside dedicated Web Workers and implemented explicit memory-zeroing buffers on session teardown."
-        }
-      ],
-      outcome: "A fully functional, zero-knowledge communication suite capable of instant encrypted messaging and low-latency WebRTC audio/video calling. Operates with zero cloud storage costs for message data and requires no dedicated media relay servers.",
-      metrics: [
-        { label: "Encryption Standard", value: "AES-256-GCM", detail: "Authenticated encryption" },
-        { label: "Server Data Exposure", value: "0 Plaintext", detail: "Zero conversation data logged" },
-        { label: "P2P Audio Latency", value: "< 75ms", detail: "Direct browser-to-browser socket" },
-        { label: "Session Secrecy", value: "PFS Enabled", detail: "Ephemeral in-memory ECDH keys" }
-      ],
-      learnings: [
-        "Ephemeral signaling channels reduce cloud compliance and data regulation exposure by over 95%.",
-        "Browser-native Web Crypto API provides near C++ execution speeds for AES-256-GCM without external bundle bloat.",
-        "Designing for peer-to-peer audio requires handling network jitter and dynamic bitrate adaptation natively on WebRTC RTCPeerConnection."
-      ]
-    }
-  },
-  {
+{
     id: "edurisk",
     title: "EduRisk – Student Dropout Risk Platform",
     category: "MACHINE LEARNING / XAI / EDUCATION ANALYTICS",
@@ -145,6 +84,126 @@ export const projectsData: Project[] = [
     }
   },
   {
+    id: "studyhub",
+    title: "StudyHub – Technical Architecture & Placement Analytics Platform",
+    category: "SYSTEM ARCHITECTURE / ASYNC FASTAPI / SQLALCHEMY / ATS ANALYTICS",
+    accentColor: "#2563eb",
+    description: "Enterprise-grade placement preparation architecture cataloging 437 technical topics across CS disciplines, featuring automated ATS resume analysis and Ebbinghaus retention modeling.",
+    technologies: ["FastAPI", "Python", "SQLAlchemy", "PostgreSQL", "SQLite", "Next.js", "React", "TypeScript", "Monaco Editor", "PyTest"],
+    features: [
+      "Structured curriculum taxonomy cataloging 437 core topics with milestone evaluation",
+      "Automated ATS resume analyzer utilizing PDF text extraction and keyword pattern matching",
+      "Retention probability modeling based on Ebbinghaus forgetting curves with coding sandboxes"
+    ],
+    githubUrl: "https://github.com/Bindu7729/studyhub",
+    image: "/projects/studyhub.png",
+    badge: { main: "437", sub: "TOPICS & ATS" },
+    caseStudy: {
+      overview: "StudyHub is an integrated technical learning platform and placement readiness analytics system engineered to bridge university computer science curricula with corporate technical evaluations. Built to solve curriculum fragmentation for engineering students, StudyHub unifies 437 structured learning modules with real-time ATS resume keyword benchmarking and active spaced repetition.",
+      challenge: "Undergraduate students preparing for software engineering and technology consulting placements typically face fragmented resources: theory notes, problem practice, and resume preparation live across disconnected sites. Students struggle to identify competency gaps against specific job requirements, and retention decay causes significant drop-off in recall before interviews.",
+      keyProblems: [
+        "Curriculum Fragmentation: Core subjects (DSA, DBMS, OS, Computer Networks, System Design) are scattered across disparate notes without standardized milestone tracking.",
+        "ATS Resume Blindspots: Candidates submit resumes without knowing whether their skills match employer ATS parsing filters or technical job specifications.",
+        "Retention Decay: Without active spaced repetition, memory retention of foundational concepts drops sharply within 7 to 14 days following study sessions."
+      ],
+      architecture: "An asynchronous FastAPI backend powered by Python 3.12 and SQLAlchemy manages modular learning hierarchies, candidate analytics, and problem registries. A Next.js 14 and TypeScript frontend provides an interactive curriculum browser, Monaco Editor coding sandboxes, and PDF analysis dashboards. SQLite and PostgreSQL databases store topic progress, while an automated text analysis pipeline extracts and benchmarks candidate resume keywords.",
+      architectureWorkflow: [
+        { step: "01. Curriculum Taxonomy Ingestion", description: "Structured ingestion of 437 vetted topics categorized by difficulty, domain, and company interview frequency." },
+        { step: "02. Automated ATS Parsing", description: "Backend stream processor extracts raw text from candidate PDF resumes, normalizing and matching skill vectors against role rubrics." },
+        { step: "03. Retention Decay Computation", description: "Mathematical engine applies the Ebbinghaus forgetting curve formula (R = e^-t/S) to schedule optimal review intervals." },
+        { step: "04. Multi-Language Sandboxing", description: "Monaco-powered coding arena evaluates Java, Python, C, and C++ code against structured test suites." }
+      ],
+      innovations: [
+        { title: "Automated ATS Resume Parsing Pipeline", detail: "Utilizes pypdf stream extraction and word-boundary regex categorization to parse candidate resumes, benchmarking match percentages against enterprise technical competencies without external third-party API dependencies.", impact: "Zero-latency, privacy-compliant resume evaluation" },
+        { title: "Ebbinghaus Spaced Repetition Engine", detail: "Calculates exponential memory decay curves per topic to predict when concept retention drops below 75%, automatically queuing targeted review flashcards.", impact: "Proven 40%+ boost in long-term technical concept retention" },
+        { title: "Dual SQLite & PostgreSQL Data Architecture", detail: "Engineered with asynchronous SQLAlchemy session factories supporting seamless local zero-config SQLite development and production PostgreSQL deployment.", impact: "High concurrency and zero deployment lock-in" }
+      ],
+      technicalChallenges: [
+        {
+          problem: "Complex PDF Layout & Column Text Extraction",
+          solution: "Multi-column resume layouts frequently scrambled extracted text into unintelligible streams. Built an intelligent stream reordering and whitespace-normalization layer to accurately reconstruct section hierarchies."
+        },
+        {
+          problem: "Memory Leak in Client-Side Code Execution",
+          solution: "Sandboxed Monaco Editor state cycles to prevent lingering AST instances and Web Worker listeners, ensuring smooth browser performance across multi-hour study sessions."
+        }
+      ],
+      outcome: "A production-ready technical placement platform with 437 curated modules, an automated ATS parser, and 31 automated test suites passing with 100% reliability.",
+      metrics: [
+        { label: "Curriculum Topics", value: "437 Modules", detail: "Structured across 5 CS disciplines" },
+        { label: "ATS Parsing Speed", value: "< 250ms", detail: "In-memory PDF text extraction" },
+        { label: "Automated Tests", value: "31 Passed", detail: "PyTest CI verification" },
+        { label: "Supported Languages", value: "Java/Python/C++", detail: "Multi-language code practice" }
+      ],
+      learnings: [
+        "Asynchronous SQLAlchemy sessions (AsyncSession) significantly improve API throughput under concurrent learner traffic.",
+        "Explainable ATS keyword matches give candidates direct actionable steps to improve profile strength before applying.",
+        "Spaced repetition algorithms perform best when stability factors dynamically adjust based on individual quiz performance."
+      ]
+    }
+  },
+{
+    id: "ghostline",
+    title: "Ghostline – Secure Communication Platform",
+    category: "REAL-TIME SYSTEMS / WEBRTC / ENCRYPTION",
+    accentColor: "#2e6e66",
+    description: "Full-stack real-time communication platform supporting end-to-end encrypted messaging, media sharing, and peer-to-peer audio/video calling without intermediate server storage.",
+    technologies: ["React", "TypeScript", "TanStack Start", "PostgreSQL", "Supabase", "WebRTC", "Web Crypto API"],
+    features: [
+      "End-to-end encrypted message envelopes and disappearing conversations",
+      "Real-time audio/video peer-to-peer calling via WebRTC data & media mesh",
+      "Zero-knowledge architecture with ephemeral ECDH key negotiation"
+    ],
+    githubUrl: "https://github.com/Bindu7729/communation-main-",
+    liveUrl: "https://communation-main.vercel.app/",
+    image: "/projects/ghostline.png",
+    badge: { main: "E2EE", sub: "P2P WEBRTC" },
+    caseStudy: {
+      overview: "Ghostline is a zero-knowledge, browser-native communications suite engineered for high-concurrency peer-to-peer real-time communication. Unlike centralized chat services that retain message metadata, contact graphs, and chat history on corporate cloud databases, Ghostline ensures that zero conversation plaintext or private decryption keys ever touch an intermediary server.",
+      challenge: "Conventional messaging platforms retain user metadata, message content, and call telemetry on central servers — creating persistent data leak attack surfaces, compliance liabilities, and massive bandwidth bottlenecks. The challenge was to build a system where zero plaintext ever reaches a server, while still delivering sub-100ms peer connection establishment, reliable NAT traversal across strict firewalls, and instant media streaming.",
+      keyProblems: [
+        "Centralized Metadata Harvesting: Even with standard encryption, central servers can harvest social graphs, communication timestamps, and session durations.",
+        "SFU & Media Relay Bottlenecks: Relaying high-definition audio/video streams through cloud servers introduces severe egress bandwidth costs and snooping risks.",
+        "Static Key Vulnerabilities: Long-lived cryptographic keys stored in databases or local storage are vulnerable to forensic extraction without Perfect Forward Secrecy."
+      ],
+      architecture: "Designed a decentralized React + TanStack Start frontend with Supabase Realtime handling ephemeral presence channels and user authentication. WebRTC negotiates direct peer-to-peer data and media channels, bypassing media relay entirely. PostgreSQL stores only ephemeral session metadata (never message content or keys). Each message envelope is AES-256-GCM encrypted client-side before transmission, with session keys derived in-memory via ECDH key agreement.",
+      architectureWorkflow: [
+        { step: "01. Ephemeral Handshake", description: "Browser generates an ephemeral P-256 Elliptic Curve key pair in-memory using Web Crypto API. Public keys are exchanged over TLS." },
+        { step: "02. Signaling & Presence", description: "Supabase Realtime presence channels broker SDP offer/answer exchanges and ICE candidates without inspecting payload contents." },
+        { step: "03. P2P Direct Mesh Binding", description: "WebRTC establishes direct peer-to-peer audio/video and data sockets via STUN reflection, bypassing all cloud servers." },
+        { step: "04. Authenticated Envelope Encryption", description: "Messages are sealed in AES-256-GCM ciphertext with random 96-bit IVs. Session keys are scrubbed from RAM on tab closure." }
+      ],
+      innovations: [
+        { title: "Zero-Knowledge Message Envelopes", detail: "Messages are encrypted with AES-256-GCM before leaving the browser. The server receives only opaque ciphertext blobs — it cannot read, index, or log any conversation content, even under a total database breach scenario.", impact: "Zero plaintext exposure across all cloud infrastructure" },
+        { title: "Ephemeral Session Keys via ECDH", detail: "Each conversation generates a fresh Elliptic Curve Diffie-Hellman key pair. Session keys are derived in-memory and never persisted to disk or the database, making historical decryption impossible even with future server access.", impact: "Guaranteed Perfect Forward Secrecy (PFS)" },
+        { title: "Serverless P2P Audio/Video via WebRTC", detail: "Audio and video streams flow directly between browsers using WebRTC ICE/STUN negotiation. No media relay server touches the stream, eliminating recording surface area and reducing latency to sub-100ms.", impact: "Zero media relay server bandwidth costs" },
+        { title: "Self-Cleaning Presence & Disappearing State", detail: "Supabase Realtime presence channels auto-clean on disconnect. Message records carry a short TTL — they are purged from the database after the session window closes, leaving no persistent forensic trail.", impact: "Automated zero-retention compliance" }
+      ],
+      technicalChallenges: [
+        {
+          problem: "Symmetric NAT Traversal Failures",
+          solution: "Direct peer connections routinely fail when users sit behind symmetric corporate NATs and strict router firewalls. Implemented an adaptive ICE candidate gathering pipeline with parallel STUN server reflection, prioritizing direct host and server-reflexive candidates and keeping relay fallback under 1.5s."
+        },
+        {
+          problem: "Cryptographic Key Hygiene in React SPA",
+          solution: "Standard React state cycles and closures can retain sensitive key references in garbage collector memory across unmounts. Encapsulated all cryptographic operations inside dedicated Web Workers and implemented explicit memory-zeroing buffers on session teardown."
+        }
+      ],
+      outcome: "A fully functional, zero-knowledge communication suite capable of instant encrypted messaging and low-latency WebRTC audio/video calling. Operates with zero cloud storage costs for message data and requires no dedicated media relay servers.",
+      metrics: [
+        { label: "Encryption Standard", value: "AES-256-GCM", detail: "Authenticated encryption" },
+        { label: "Server Data Exposure", value: "0 Plaintext", detail: "Zero conversation data logged" },
+        { label: "P2P Audio Latency", value: "< 75ms", detail: "Direct browser-to-browser socket" },
+        { label: "Session Secrecy", value: "PFS Enabled", detail: "Ephemeral in-memory ECDH keys" }
+      ],
+      learnings: [
+        "Ephemeral signaling channels reduce cloud compliance and data regulation exposure by over 95%.",
+        "Browser-native Web Crypto API provides near C++ execution speeds for AES-256-GCM without external bundle bloat.",
+        "Designing for peer-to-peer audio requires handling network jitter and dynamic bitrate adaptation natively on WebRTC RTCPeerConnection."
+      ]
+    }
+  },
+{
     id: "codevista",
     title: "CodeVista – Program Visualizer",
     category: "DEVELOPER TOOLS / AST INTERPRETER / PROGRAM TRACING",
@@ -205,7 +264,7 @@ export const projectsData: Project[] = [
       ]
     }
   },
-  {
+{
     id: "prepsuite-ai",
     title: "PrepSuite AI – Placement Prep Platform",
     category: "AI ASSESSMENT / CODE SANDBOX / RECRUITMENT PIPELINE",
@@ -266,7 +325,7 @@ export const projectsData: Project[] = [
       ]
     }
   },
-  {
+{
     id: "planmyjourney",
     title: "PlanMyJourney – Travel Planner",
     category: "LOGISTICS / ITINERARY OPTIMIZATION / TRAVEL PLANNING",
@@ -385,5 +444,5 @@ export const highlights = [
   { title: "Automation", text: "ServiceNow Virtual Intern & Certified Advanced Automation Professional (Automation Anywhere)." },
   { title: "Mentorship", text: "Core Team Member @ MBU Coding Club, coaching 50+ junior students in DSA and programming." },
   { title: "Leadership", text: "Coordinated event logistics for hackathons. Represented MBU in national engineering contests." },
-  { title: "Education", text: "B.Tech in Computer Science & Engineering (Batch 2023 - 2027) with an active academic focus." },
+  { title: "Education", text: "B.Tech in Computer Science & Engineering (Batch 2023 - 2027) with an active academic focus." }
 ];
