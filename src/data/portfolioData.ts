@@ -15,10 +15,11 @@ export const personalInfo = {
 };
 
 export const skillsData: SkillCategory[] = [
-  { category: "Languages", skills: ["Java", "Python", "TypeScript", "JavaScript"] },
-  { category: "Frontend", skills: ["React", "Next.js", "Tailwind CSS"] },
-  { category: "Backend", skills: ["Spring Boot", "FastAPI", "Node.js"] },
-  { category: "Tools & DB", skills: ["Git / GitHub", "Docker", "MySQL / PostgreSQL", "MongoDB"] }
+  { category: "Programming Languages", skills: ["Python", "SQL", "Java", "TypeScript", "JavaScript"] },
+  { category: "Data Analytics & ML", skills: ["Data Cleaning", "Exploratory Data Analysis (EDA)", "Statistical Analysis", "Feature Engineering", "Scikit-learn", "Supervised Learning", "Model Evaluation"] },
+  { category: "Databases & Querying", skills: ["MySQL", "PostgreSQL", "SQL Joins", "Subqueries", "Aggregations", "Database Management"] },
+  { category: "Tools & Technologies", skills: ["Pandas", "NumPy", "Git / GitHub", "REST APIs", "FastAPI", "Docker"] },
+  { category: "Core Competencies", skills: ["Analytical Thinking", "Problem-Solving", "Data Interpretation", "Logical Reasoning", "Technical Documentation"] }
 ];
 
 export const projectsData: Project[] = [
